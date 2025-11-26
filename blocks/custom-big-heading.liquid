@@ -1,0 +1,28 @@
+{% style %}
+  .head-blocker {
+    font-size: 10rem;
+    color: orange;
+  }
+{% endstyle %}
+<div class="heading-blocker">
+  <h2>{{ block.settings.heading_text }}</h2>
+</div>
+
+{% schema %}
+{
+  "name": "Heading Custom Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Default Heading"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading Custom Block"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,174 @@
+<section
+  class="hero-test"
+  style="background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});"
+>
+  {% assign align_value = section.settings.hero_alignment %}
+
+  {% if align_value == 'flex-start' %}
+    {% assign text_align = 'left' %}
+  {% elsif align_value == 'center' %}
+    {% assign text_align = 'center' %}
+  {% elsif align_value == 'flex-end' %}
+    {% assign text_align = 'right' %}
+  {% endif %}
+
+  <div
+    class="hero-container"
+    style="
+      align-items: {{ align_value }} !important;
+      text-align: {{ text_align }} !important;
+    "
+  >
+    {% content_for 'blocks' %}
+  </div>
+</section>
+
+
+{% stylesheet %}
+  .hero-test {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    min-height: 700px;
+    height: 60vh;
+    width: 100%;
+  }
+
+  .hero-test::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 1;
+    opacity: 0.25;
+    height: 100%;
+    width: 100%;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    padding: 2rem 2rem 4rem 4rem;
+    z-index: 99;
+  }
+
+  .hero-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-button {
+    background: #000;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .hero-button:hover {
+    opacity: 0.85;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Dynamic Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "hero_alignment",
+      "label": "Content Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "_heading"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "logo"
+    },
+    {
+      "type": "jumbo-text"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "_marquee"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Hero Section",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Hi this is heading</h1>"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Hi this is a biiig biig paragraph</h3>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Long button",
+            "link": "shopify://collections/all"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

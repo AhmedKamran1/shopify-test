@@ -1,0 +1,78 @@
+<div>
+  <div>{{ section.settings['main-text'] }}</div>
+  {% for block in section.blocks %}
+    <div>{{ block.settings['block-text'] }}</div>
+    <div>{{ block.settings['block-sub-text'] }}</div>
+  {% endfor %}
+  {% for product in collections['hidden-homepage-carousel'].products %}
+    <div>{{ product.title }}</div>
+  {% endfor %}
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Test",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Enter Main Title",
+      "id": "main-text",
+      "default": "This is Main Heading"
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    { "type": "@theme" },
+    { "type": "custom-big-heading" },
+
+    {
+      "type": "text"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "logo"
+    },
+    {
+      "type": "jumbo-text"
+    },
+    {
+      "type": "spacer"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "_marquee"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Test",
+      "blocks": [
+        {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 1"
+          }
+        },
+        {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 2"
+          }
+        },
+        {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 3"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
