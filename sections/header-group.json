@@ -109,10 +109,46 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "testing_GVA3i3": {
+      "type": "testing",
+      "blocks": {
+        "custom_big_heading_dxM7Wk": {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 1"
+          },
+          "blocks": {}
+        },
+        "custom_big_heading_RfcB4k": {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 2"
+          },
+          "blocks": {}
+        },
+        "custom_big_heading_L3jdQ9": {
+          "type": "custom-big-heading",
+          "settings": {
+            "heading_text": "This is Heading 3"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "custom_big_heading_dxM7Wk",
+        "custom_big_heading_RfcB4k",
+        "custom_big_heading_L3jdQ9"
+      ],
+      "name": "Test",
+      "settings": {
+        "main-text": "This is Main Heading"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "testing_GVA3i3"
   ]
 }
